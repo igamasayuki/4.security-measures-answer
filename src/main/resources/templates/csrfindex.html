@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title>クロスサイトリクエストフォージェリ</title>
+</head>
+<body>
+<h1>クロスサイトリクエストフォージェリとは</h1>
+<h2>概要</h2>
+<p>
+外部サイト経由でユーザが意図しないリクエストがサーバーに送信されてしまう脆弱性です。<br>
+この脆弱性があると、掲示板に意図しない書き込みをさせられたり、
+オンラインショップで買い物をさせられたりしてしまいます。
+</p>
+<h2>どのような時に起こるか？</h2>
+<p>外部サイトから意図しないリクエストを送られた時</p>
+<h2>体験してみよう</h2>
+<p><a th:href="@{/bbs/show}" target="_blank">クロスサイトリクエストフォージェリを体験</a></p>
+<h2>回避方法を話し合い、対策してみよう</h2>
+<p>グループで回避方法を話し合い(調べてもOK)、実際に対策してみてください。<br>
+<span style="color:red;">また、XSS対策を終えてしまった場合は、CSRFの対策ができなくなるため、一度XSS対策を元に戻してから対策してください</span>
+</p>
+</body>
+</html>

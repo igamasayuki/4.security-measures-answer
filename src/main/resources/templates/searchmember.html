@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title>メンバー検索</title>
+</head>
+<body>
+<h3>SQLインジェクションの確認</h3>
+<p>内容に<br>
+「伊賀」(正常検索)<br>
+「郎」(正常検索)<br>
+「%' --」(SQLインジェクションの脆弱性を突く検索)<br>
+と入力し投稿ボタンを押してください。</p>
+
+<form th:action="@{/member/search}" method="post">
+	検索したい人の名前<br>
+	<input type="text" name="name">
+	<button>検索</button>
+</form>
+<hr>
+<table border="1">
+	<tr>
+		<th>名前</th>
+		<th>メール</th>
+		<th>権限</th>
+	</tr>
+	<tr th:each="member : ${members}">
+		<td>
+			<span th:text="${member.name}"/></span>
+		</td>
+		<td>
+			<span th:text="${member.mailAddress}"/></span>
+		</td>
+		<td>
+			<span th:text="${member.roleName}"/></span>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

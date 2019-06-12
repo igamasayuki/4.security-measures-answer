@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title>セキュリティ対策システム</title>
+</head>
+<body>
+<h1>セキュリティ脆弱性体験サイト</h1>
+<ul>
+	<li><a th:href="@{/sqlinjection}">SQLインジェクションを体験</a></li>
+	<li><a th:href="@{/toxssindex}">クロスサイトスクリプティングを体験</a></li>
+	<li><a th:href="@{/tocsrfindex}">クロスサイトリクエストフォージェリを体験</a></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title>掲示板</title>
+</head>
+<body>
+<h3>XSS脆弱性の確認</h3>
+<p>【名前】に<br>
+「&lt;script&gt;alert("XSS！");&lt;/script&gt;」<br>
+と入力し投稿ボタンを押してください。</p>
+<h3>CSRF脆弱性の確認</h3>
+<p>【内容】に<br>
+「このページ面白いよ！&lt;br&gt;&lt;a href="http://localhost:8080/security/csrfattack.html"&gt;クリックしてみて！&lt;/a&gt;」<br>
+と入力し投稿ボタンを押してください。</p>
+<form th:action="@{/bbs/postArticle}" method="post">
+	名前<br>
+	<input type="text" name="name"><br>
+	内容<br>
+	<textarea rows="5" cols="20" name="body"></textarea><br>
+	<button>投稿</button><br>
+</form>
+<div th:each="article, status:${session.articleList}">
+	<hr>
+	番号:<span th:utext="${status.index}"></span><br>
+	名前:<span th:utext="${article.name}"></span><br>
+	内容:<span th:utext="${article.body}"></span><br>
+	<form th:action="@{/bbs/deleteArticle}" method="post">
+	    <input type="hidden" name="index" th:value="${status.index}">
+	    <button>削除</button>
+	</form>
+</div>
+</body>
+</html>

