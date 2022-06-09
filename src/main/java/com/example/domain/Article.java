@@ -12,20 +12,9 @@ public class Article {
 	/** 内容 */
 	private String body;
 
-	/**
-	 * 引数の無いコンストラクタ
-	 */
 	public Article() {
 	}
 
-	/**
-	 * 初期化用コンストラクタ.
-	 * 
-	 * @param name
-	 *            名前
-	 * @param body
-	 *            内容
-	 */
 	public Article(String name, String body) {
 		this.name = name;
 		this.body = body;

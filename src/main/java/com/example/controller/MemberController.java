@@ -22,7 +22,7 @@ public class MemberController {
 
 	@Autowired
 	private MemberService memberService;
-	
+
 	/**
 	 * メンバー検索画面を表示します.
 	 * 
@@ -33,8 +33,15 @@ public class MemberController {
 		return "searchmember";
 	}
 
+	/**
+	 * メンバーを検索します.
+	 * 
+	 * @param name  入力された名前
+	 * @param model モデル
+	 * @return メンバー検索画面
+	 */
 	@RequestMapping("/search")
-	public String serchMemberByLikeName(String name,Model model) {
+	public String serchMemberByLikeName(String name, Model model) {
 		List<Member> members = memberService.findByLikeName(name);
 		model.addAttribute("members", members);
 		return "searchmember";

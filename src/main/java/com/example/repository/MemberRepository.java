@@ -37,16 +37,14 @@ public class MemberRepository {
 	/**
 	 * 名前からメンバーを曖昧検索する.
 	 * 
-	 * @param name
-	 *            名前
-	 * @return 検索されたメンバー一覧 
+	 * @param name 名前
+	 * @return 検索されたメンバー一覧
 	 */
 	public List<Member> findByLikeName(String name) {
-		String sql = "SELECT id, name, mail_address, password, is_admin "
-				   + "FROM members WHERE name like :name "
-				   + "AND is_admin != true";
+		String sql = "SELECT id, name, mail_address, password, is_admin " + "FROM members WHERE name like :name "
+				+ "AND is_admin != true";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("name", "%" + name + "%");
-		
+
 		return jdbcTemplate.query(sql, param, MEMBER_ROW_MAPPER);
 	}
 }

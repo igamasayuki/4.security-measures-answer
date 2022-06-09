@@ -18,16 +18,15 @@ import com.example.repository.MemberRepository;
 public class MemberService {
 	@Autowired
 	private MemberRepository memberRepository;
-	
+
 	/**
 	 * 名前からメンバーを曖昧検索する.
 	 * 
-	 * @param name
-	 *            名前
+	 * @param name 名前
 	 * @return 検索されたメンバー一覧
 	 */
 	public List<Member> findByLikeName(String name) {
 		return memberRepository.findByLikeName(name);
 	}
-	
+
 }
