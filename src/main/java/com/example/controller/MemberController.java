@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.domain.Member;
@@ -28,7 +29,7 @@ public class MemberController {
 	 * 
 	 * @return メンバー検索画面
 	 */
-	@RequestMapping("/show")
+	@GetMapping("/show")
 	public String showSearchMember() {
 		return "searchmember";
 	}
@@ -40,7 +41,7 @@ public class MemberController {
 	 * @param model モデル
 	 * @return メンバー検索画面
 	 */
-	@RequestMapping("/search")
+	@GetMapping("/search")
 	public String serchMemberByLikeName(String name, Model model) {
 		List<Member> members = memberService.findByLikeName(name);
 		model.addAttribute("members", members);

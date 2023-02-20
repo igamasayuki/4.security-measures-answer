@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -17,7 +18,7 @@ public class AppController {
 	 * 
 	 * @return トップ画面
 	 */
-	@RequestMapping("")
+	@GetMapping("")
 	public String index() {
 		return "index";
 	}
@@ -27,7 +28,7 @@ public class AppController {
 	 * 
 	 * @return SQLインジェクション説明画面
 	 */
-	@RequestMapping("/sqlinjection")
+	@GetMapping("/sqlinjection")
 	public String sqlInjection() {
 		return "sqlinjectionindex";
 	}
@@ -37,7 +38,7 @@ public class AppController {
 	 * 
 	 * @return クロスサイトスクリプティング説明画面
 	 */
-	@RequestMapping("/toxssindex")
+	@GetMapping("/toxssindex")
 	public String toXssIndex() {
 		return "xssindex";
 	}
@@ -47,7 +48,7 @@ public class AppController {
 	 * 
 	 * @return クロスサイトリクエストフォージェリ説明画面
 	 */
-	@RequestMapping("/tocsrfindex")
+	@GetMapping("/tocsrfindex")
 	public String toCsrfIndex() {
 		return "csrfindex";
 	}

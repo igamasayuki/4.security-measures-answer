@@ -14,7 +14,7 @@
 「%' --」(SQLインジェクションの脆弱性を突く検索)<br>
 と入力し投稿ボタンを押してください。</p>
 
-<form th:action="@{/member/search}" method="post">
+<form th:action="@{/member/search}" method="get">
 	検索したい人の名前<br>
 	<input type="text" name="name">
 	<button>検索</button>
